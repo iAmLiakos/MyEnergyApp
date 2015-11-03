@@ -90,7 +90,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="SAVE"
-        android:id="@+id/button2"
+        android:id="@+id/savebutton"
         android:layout_gravity="center_horizontal"
         android:layout_below="@+id/editText6"
         android:layout_centerHorizontal="true" />
@@ -101,7 +101,7 @@
         android:text="Tips about the device"
         android:id="@+id/textView7"
         android:layout_alignParentBottom="true"
-        android:layout_below="@+id/button2"
+        android:layout_below="@+id/savebutton"
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
         android:textAlignment="center"
