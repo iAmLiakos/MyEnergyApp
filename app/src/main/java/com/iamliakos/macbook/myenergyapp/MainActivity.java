@@ -8,6 +8,8 @@ import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -17,7 +19,8 @@ public class MainActivity extends AppCompatActivity {
         aboutButton.setOnClickListener(aboutButtonListener);
         Button addButton = (Button)findViewById(R.id.addbutton);
         addButton.setOnClickListener(addButtonListener);
-
+        Button monitorButton = (Button)findViewById(R.id.monitorbutton);
+        monitorButton.setOnClickListener(monitorButtonListener);
     }
 
     public View.OnClickListener aboutButtonListener = new View.OnClickListener() {
@@ -33,6 +36,17 @@ public class MainActivity extends AppCompatActivity {
             addcall();
         }
     };
+
+    public View.OnClickListener monitorButtonListener = new View.OnClickListener() {
+        public void onClick(View v) {
+            monitoring();
+        }
+    };
+
+    public void monitoring() {
+        Intent monitor = new Intent(MainActivity.this, MonitorActivity.class);
+        startActivity(monitor);
+    }
 
     public void aboutcall(){
         Intent about = new Intent(MainActivity.this, AboutActivity.class);
