@@ -8,11 +8,15 @@ import android.widget.ListView;
 import java.util.List;
 
 public class AboutActivity extends AppCompatActivity {
-    database data = new database(this);
+    //database data = new database(this);
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_about);
+    database data = new database(this);
+        data.getAllDevices();
+
 
 
     }

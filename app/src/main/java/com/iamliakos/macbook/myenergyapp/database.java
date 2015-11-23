@@ -15,6 +15,8 @@ import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteException;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
 
 
 class database extends SQLiteOpenHelper {
@@ -77,12 +79,18 @@ class database extends SQLiteOpenHelper {
         db.close();
     }
 
+    public void devicedel(String name){
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.delete(TABLE_DEVICES, KEY_NAME + "=\"" + name + "\"", null);
+        db.close();
+    }
+
     public Devices getDevice(int id) {
         SQLiteDatabase db = this.getReadableDatabase();
 
-        Cursor cursor = db.query(TABLE_DEVICES, new String[] { KEY_ID,
-                        KEY_NAME, KEY_WATTS }, KEY_ID + "=?",
-                new String[] { String.valueOf(id) }, null, null, null, null);
+        Cursor cursor = db.query(TABLE_DEVICES, new String[]{KEY_ID,
+                        KEY_NAME, KEY_WATTS}, KEY_ID + "=?",
+                new String[]{String.valueOf(id)}, null, null, null, null);
         if (cursor != null)
             cursor.moveToFirst();
 
@@ -112,5 +120,6 @@ class database extends SQLiteOpenHelper {
         // return devices list
         return deviceList;
     }
+
 }
 
